@@ -85,7 +85,6 @@ app.post("/upload", upload.single("resume"), async (req, res) => {
 });
 
 // Start server
-const PORT = 5000;
-app.listen(PORT, () => {
-  console.log(`✅ Server running on http://localhost:${PORT}`);
+app.get("/", (req, res) => {
+  res.send("Resume Analyser API is running!");
 });

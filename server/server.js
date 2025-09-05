@@ -7,11 +7,10 @@ const pdfParse = require("pdf-parse");
 const mammoth = require("mammoth");
 const matchSkills = require("./utils/matcher");
 const matchResumeWithJD = require("./utils/compare");
-const app = express();
-const cors = require("cors"); 
+const app = express(); 
 const API_URL = process.env.VITE_API_URL;
 app.use(cors({
-  origin: ["http://localhost:5173", API_URL], 
+  origin: ["http://localhost:5173"], 
   methods: ["GET", "POST", "PUT", "DELETE"],
   credentials: true
 }));
@@ -59,7 +58,7 @@ app.post("/upload", upload.single("resume"), async (req, res) => {
       return res.status(400).json({ error: "Unsupported file type" });
     }
     const { found, missing } = matchSkills(text);
-    console.log("hello tanya");
+
     const jobDescription = req.body.jobDescription || "";
     let jdScore, jdFound=[], jdMiss=[];
     if (jobDescription.trim().length > 0) {

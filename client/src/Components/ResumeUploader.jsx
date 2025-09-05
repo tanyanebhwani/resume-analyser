@@ -22,8 +22,8 @@ export default function ResumeUploader() {
       const form = new FormData();
       form.append("resume", file);
       form.append("jobDescription", jobDescription);
-
-      const res = await fetch("https://resume-analyser-1-z5td.onrender.com", {
+      const apiUrl = import.meta.env.VITE_API_URL;
+      const res = await fetch(`${apiUrl}/upload`, {
         method: "POST",
         body: form,
       });

@@ -51,7 +51,6 @@ function matchResumeWithJD(resumeText, jdText) {
   // Score = matched skills ÷ required skills
   const totalRelevant = jdFound.length + jdMiss.length;
   const jdScore = totalRelevant > 0 ? (jdFound.length / totalRelevant) * 100 : 0;
-  console.log(jdFound, jdMiss, jdScore);
   return {jdScore:jdScore.toFixed(2),jdFound: jdFound.map(s => s.name), jdMiss: jdMiss.map(s => s.name) };
 }
 

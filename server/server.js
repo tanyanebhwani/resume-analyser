@@ -10,7 +10,7 @@ const matchResumeWithJD = require("./utils/compare");
 const app = express(); 
 const API_URL = process.env.VITE_API_URL;
 app.use(cors({
-  origin: ["http://localhost:5173"], 
+  origin: ["http://localhost:5173","https://tanyaresumeanalyser.netlify.app"], 
   methods: ["GET", "POST", "PUT", "DELETE"],
   credentials: true
 }));

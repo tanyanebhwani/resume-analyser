@@ -8,7 +8,13 @@ const mammoth = require("mammoth");
 const matchSkills = require("./utils/matcher");
 const matchResumeWithJD = require("./utils/compare");
 const app = express();
-app.use(cors());
+const cors = require("cors"); 
+const API_URL = process.env.VITE_API_URL;
+app.use(cors({
+  origin: ["http://localhost:5173", API_URL], 
+  methods: ["GET", "POST", "PUT", "DELETE"],
+  credentials: true
+}));
 app.use(express.json());
 
 // 📂 Folder to save resumes
@@ -16,12 +22,6 @@ const UPLOAD_FOLDER = path.join(__dirname, "resumes");
 if (!fs.existsSync(UPLOAD_FOLDER)) {
   fs.mkdirSync(UPLOAD_FOLDER);
 }
-const API_URL = process.env.VITE_API_URL;
-app.use(cors({
-  origin: ["http://localhost:5000", API_URL], 
-  methods: ["GET", "POST", "PUT", "DELETE"],
-  credentials: true
-}));
 
 // ⚡ Multer setup for file upload
 const storage = multer.diskStorage({

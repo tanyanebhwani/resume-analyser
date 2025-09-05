@@ -16,6 +16,12 @@ const UPLOAD_FOLDER = path.join(__dirname, "resumes");
 if (!fs.existsSync(UPLOAD_FOLDER)) {
   fs.mkdirSync(UPLOAD_FOLDER);
 }
+const API_URL = process.env.VITE_API_URL;
+app.use(cors({
+  origin: ["http://localhost:5000", API_URL], 
+  methods: ["GET", "POST", "PUT", "DELETE"],
+  credentials: true
+}));
 
 // ⚡ Multer setup for file upload
 const storage = multer.diskStorage({

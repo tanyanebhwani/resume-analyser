@@ -1,0 +1,8 @@
+<!-- filepath: c:\Users\nebhw\OneDrive\Desktop\End to End project\resume-analyser\client\public\resume-heroicon.svg -->
+<svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+  <rect x="4" y="3" width="16" height="18" rx="2" fill="#6366f1" stroke="#6366f1" stroke-width="2"/>
+  <rect x="7" y="7" width="10" height="2" rx="1" fill="#fff"/>
+  <rect x="7" y="11" width="7" height="2" rx="1" fill="#fff"/>
+  <rect x="7" y="15" width="5" height="2" rx="1" fill="#fff"/>
+  <circle cx="17" cy="17" r="2" fill="#fff"/>
+</svg>

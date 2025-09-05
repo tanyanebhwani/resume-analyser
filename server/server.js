@@ -32,7 +32,9 @@ const storage = multer.diskStorage({
   },
 });
 const upload = multer({ storage });
-
+app.get("/", (req, res) => {
+  res.send("Resume Analyser API is running!");
+});
 // 📌 API Route: Upload Resume
 app.post("/upload", upload.single("resume"), async (req, res) => {
   try {
@@ -85,6 +87,7 @@ app.post("/upload", upload.single("resume"), async (req, res) => {
 });
 
 // Start server
-app.get("/", (req, res) => {
-  res.send("Resume Analyser API is running!");
+const PORT = 5000;
+app.listen(PORT, () => {
+  console.log(`✅ Server running on http://localhost:${PORT}`);
 });

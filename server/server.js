@@ -8,7 +8,8 @@ const mammoth = require("mammoth");
 const matchSkills = require("./utils/matcher");
 const matchResumeWithJD = require("./utils/compare");
 const app = express(); 
-const API_URL = process.env.VITE_API_URL;
+const scoreResume = require('./utils/scoring');
+
 app.use(cors({
   origin: ["http://localhost:5173","https://tanyaresumeanalyser.netlify.app"], 
   methods: ["GET", "POST", "PUT", "DELETE"],
@@ -36,7 +37,7 @@ app.get("/", (req, res) => {
   res.send("Resume Analyser API is running!");
 });
 // 📌 API Route: Upload Resume
-app.post("/upload", upload.single("resume"), async (req, res) => {
+app.post("/upload",upload.single("resume"), async (req, res) => {
   try {
     const filePath = req.file.path;
     const fileMime = req.file.mimetype;
@@ -66,6 +67,13 @@ app.post("/upload", upload.single("resume"), async (req, res) => {
     if (jobDescription.trim().length > 0) {
       ({ jdScore, jdFound, jdMiss } = matchResumeWithJD(text, jobDescription));
     }
+    const scoring = scoreResume({
+      text,
+      skillsMatched: found, // array of matched skill names
+      skillsRequired: missing,  // array of required skill names
+      educationKeywords: []       // optional, can use default
+    });
+    console.log('Final Scoring:', scoring);
     res.json({
       extractedText: text,
       skills: {
@@ -77,6 +85,7 @@ app.post("/upload", upload.single("resume"), async (req, res) => {
         jdFound,
         jdMiss
       },
+      scoring: scoring
     });
     // Cleanup: remove the uploaded file from "uploads" folder
     fs.unlinkSync(filePath);

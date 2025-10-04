@@ -9,7 +9,8 @@ const matchSkills = require("./utils/matcher");
 const matchResumeWithJD = require("./utils/compare");
 const app = express(); 
 const scoreResume = require('./utils/scoring');
-
+const axios = require("axios");
+let text = "";
 app.use(cors({
   origin: ["http://localhost:5173","https://tanyaresumeanalyser.netlify.app"], 
   methods: ["GET", "POST", "PUT", "DELETE"],
@@ -42,7 +43,7 @@ app.post("/upload",upload.single("resume"), async (req, res) => {
     const filePath = req.file.path;
     const fileMime = req.file.mimetype;
 
-    let text = "";
+    text = "";
 
     if (fileMime === "application/pdf") {
       // PDF case
@@ -95,6 +96,23 @@ app.post("/upload",upload.single("resume"), async (req, res) => {
   }
 });
 
+app.post("/grammar", async (req, res) => {
+  try {
+    // Send text to Flask microservice
+    const response = await axios.post("http://localhost:5001/check", 
+      {
+        text: req.body.text
+      },
+      {
+        headers: { "Content-Type": "application/json"}
+      }
+      );
+    res.json(response.data); // send Flask response back to frontend
+  } catch (err) {
+    console.error("Grammar check error:", err.message);
+    res.status(500).json({ error: "Grammar check failed" });
+  }
+});
 // Start server
 const PORT = 5000;
 app.listen(PORT, () => {

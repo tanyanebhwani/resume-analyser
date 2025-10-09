@@ -99,7 +99,7 @@ app.post("/upload",upload.single("resume"), async (req, res) => {
 app.post("/grammar", async (req, res) => {
   try {
     // Send text to Flask microservice
-    const response = await axios.post("http://localhost:5001/check", 
+    const response = await axios.post("https://resume-analyser-2.onrender.com/check", 
       {
         text: req.body.text
       },

@@ -1,12 +1,15 @@
 from flask import Flask, request, jsonify
 from flask_cors import CORS
 import textstat
-import language_tool_python
-
+from language_tool_python import LanguageTool
 app = Flask(__name__)
 CORS(app)  # Allow requests from Node.js
 
-tool = language_tool_python.LanguageTool('en-US')
+
+
+# Use the public LanguageTool API (no local Java server)
+tool = LanguageTool('en-US', remote_server='https://api.languagetool.org/')
+
 
 @app.route("/check", methods=["POST"])
 def check_text():

@@ -13,6 +13,7 @@ tool = LanguageTool('en-US', remote_server='https://api.languagetool.org/')
 
 @app.route("/check", methods=["POST"])
 def check_text():
+    print("python backend working")
     grammar_issues = []
     try:
         data = request.get_json(force=True)

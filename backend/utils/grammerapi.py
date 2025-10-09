@@ -1,6 +1,7 @@
 from flask import Flask, request, jsonify
 from flask_cors import CORS
 import textstat
+import os
 from language_tool_python import LanguageTool
 app = Flask(__name__)
 CORS(app)  # Allow requests from Node.js
@@ -46,4 +47,5 @@ def check_text():
     })
 
 if __name__ == "__main__":
-    app.run(port=5001, debug=True)
+    port = int(os.environ.get("PORT", 5001))  # default 5001 for local testing
+    app.run(host="0.0.0.0", port=port)

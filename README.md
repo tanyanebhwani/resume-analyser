@@ -42,13 +42,13 @@ An web app that analyzes resumes for skills, grammar, readability, and job match
     npm run start-flask-only
 
 ## 🌐 Frontend Setup
-   cd client
-   npm install
-   npm run client
+    cd client
+    npm install
+    npm run client
   
 ## Concurrent Setup
-   npm run start
-Make sure both backend and Flask servers are running concurrently.
+    npm run start
+ Make sure both backend and Flask servers are running concurrently.
 
 Authentication	JWT
 Deployment	Render (Node & Flask services)

@@ -2,9 +2,9 @@
 
 An web app that analyzes resumes for skills, grammar, readability, and job match percentage, and even provides ATS simulation and visual feedback — helping users optimize their resumes for professional impact.
 
-##### 🔗 [Live Demo:](https://tanyaresumeanalyser.netlify.app/)
+#### 🔗 [Live Demo:](https://tanyaresumeanalyser.netlify.app/)
 
-##### 💻 [GitHub:](https://github.com/tanyanebhwani/resume-analyser)
+#### 💻 [GitHub:](https://github.com/tanyanebhwani/resume-analyser)
 
 # 🚀 Features
 - Uploads resumes in PDF/DOCX format

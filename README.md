@@ -2,7 +2,7 @@
 
 An web app that analyzes resumes for skills, grammar, readability, and job match percentage, and even provides ATS simulation and visual feedback — helping users optimize their resumes for professional impact.
 
-### 🔗 Live Demo: https://resume-analyser-2.onrender.com
+### 🔗 Live Demo: https://tanyaresumeanalyser.netlify.app/
 
 ### 💻 GitHub: tanyanebhwani/resume-analyser
 
@@ -42,12 +42,12 @@ An web app that analyzes resumes for skills, grammar, readability, and job match
     npm run start-flask-only
 
 ## 🌐 Frontend Setup
-  cd client
-  npm install
-  npm run client
+   cd client
+   npm install
+   npm run client
   
 ## Concurrent Setup
-  npm run start
+   npm run start
 Make sure both backend and Flask servers are running concurrently.
 
 Authentication	JWT

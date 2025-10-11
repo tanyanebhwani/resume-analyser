@@ -17,4 +17,38 @@ An web app that analyzes resumes for skills, grammar, readability, and job match
 - <b> Visualization </b> - Displays pie chart for skill match and a chart for readability metrics.
 -  <b> ATS Simulation </b> – Mimics how an Applicant Tracking System reads a resume and detects missing sections and skills.
 
- 
+# Tech Stack
+
+### Layer	Technologies Used
+- Frontend -	React.js, Tailwind CSS, Recharts
+- Backend (Main) -	Node.js, Express.js
+- Microservice -	Python (Flask, textstat, language-tool-python)
+- File Handling -	multer, pdf-parse, docx
+
+# ⚙️ Installation & Setup
+## 🖥️ Clone the Repository
+      git clone https://github.com/tanyanebhwani/resume-analyser.git
+      cd resume-analyser
+      npm install
+
+## 🧩 Backend Setup (Node.js)
+     cd server
+     npm install
+     npm run server
+
+## 🧠 Flask Microservice
+    cd backend
+    pip install -r requirements.txt
+    npm run start-flask-only
+
+## 🌐 Frontend Setup
+  cd client
+  npm install
+  npm run client
+  
+## Concurrent Setup
+  npm run start
+Make sure both backend and Flask servers are running concurrently.
+
+Authentication	JWT
+Deployment	Render (Node & Flask services)

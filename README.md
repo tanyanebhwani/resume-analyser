@@ -4,7 +4,7 @@ An web app that analyzes resumes for skills, grammar, readability, and job match
 
 ### 🔗 Live Demo: https://tanyaresumeanalyser.netlify.app/
 
-### 💻 GitHub: tanyanebhwani/resume-analyser
+### 💻 [GitHub:](https://github.com/tanyanebhwani/resume-analyser)
 
 # 🚀 Features
 - Uploads resumes in PDF/DOCX format

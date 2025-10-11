@@ -50,5 +50,3 @@ An web app that analyzes resumes for skills, grammar, readability, and job match
     npm run start
  Make sure both backend and Flask servers are running concurrently.
 
-Authentication	JWT
-Deployment	Render (Node & Flask services)
